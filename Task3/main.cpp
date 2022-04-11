@@ -73,5 +73,13 @@ int main() {
 	else
 		std::cout << "Shared Pointer ptr1 is NULL " << std::endl;
 
-	return 0;
+ std::cout << "----------------------------------------------------------------------------------------------------------\n";
+
+  // allocate a Test (test) object and have it owned by ptr
+    Test* test = new Test;
+    SharedPtr < Test > ptr(test);
+    ptr->print(); // call print method by using  operator -> 
+    ptr.getPtr()->print(); // call print method by using getPtr() 
+
+    return 0;
 }
