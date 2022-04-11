@@ -57,7 +57,7 @@ int main() {
 	//ptr3 goes out of scope here, and the allocated Test(t1) is destroyed
 
 	std::cout << "----------------------------------------------------------------------------------------------------------\n";
-
+	{
 	// ptr1 pointing to an integer.
 	int* t = new int(9);
 	SharedPtr < int > ptr1(t);
@@ -72,14 +72,15 @@ int main() {
 	}
 	else
 		std::cout << "Shared Pointer ptr1 is NULL " << std::endl;
+}
 
  std::cout << "----------------------------------------------------------------------------------------------------------\n";
-
-  // allocate a Test (test) object and have it owned by ptr
-    Test* test = new Test;
-    SharedPtr < Test > ptr(test);
-    ptr->print(); // call print method by using  operator -> 
-    ptr.getPtr()->print(); // call print method by using getPtr() 
-
+ {
+	 // allocate a Test (test) object and have it owned by ptr
+	 Test* test = new Test;
+	 SharedPtr < Test > ptr(test);
+	 ptr->print(); // call print method by using  operator -> 
+	 ptr.getPtr()->print(); // call print method by using getPtr() 
+ }
     return 0;
 }
